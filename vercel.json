@@ -1,7 +1,4 @@
 {
-  "functions": {
-    "api/**": {}
-  },
   "rewrites": [
     { "source": "/(.+)", "destination": "/api" }
   ]
