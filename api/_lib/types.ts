@@ -9,4 +9,5 @@ export interface ParsedRequest {
   images: string[];
   widths: string[];
   heights: string[];
+  brand: string;
 }

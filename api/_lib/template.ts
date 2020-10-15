@@ -99,6 +99,7 @@ function getCss(theme: string, fontSize: string) {
     .heading {
         color: ${headingColor};
         font-weight: ${theme == "major" ? "bold" : "regular"};
+        line-height: 1.3;
     }
 
     .name {
@@ -117,11 +118,18 @@ function getCss(theme: string, fontSize: string) {
     
     p {
         margin: 0;
+    }
+    
+    .brand:not(:empty){
+        font-weight: normal;
+        padding-left: 30px;
+        margin-left: 30px;
+        border-left: 5px solid #11e38c;
     }`;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize } = parsedReq;
+  const { text, theme, md, fontSize, brand } = parsedReq;
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -132,7 +140,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     </style>
     <body>
         <div>
-            <div class="name"><span class="green">Caleb</span> Denio</div>
+            <div class="name"><span class="green">Caleb</span> Denio<span class="brand">${brand}</span></div>
             <div class="heading">${emojify(
               md ? marked(text) : sanitizeHtml(text)
             )}
