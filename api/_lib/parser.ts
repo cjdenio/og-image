@@ -35,7 +35,7 @@ export function parseRequest(req: IncomingMessage) {
     images: getArray(images),
     widths: getArray(widths),
     heights: getArray(heights),
-    brand: brand as string,
+    brand: (brand as string) || "",
   };
   parsedRequest.images = getDefaultImages(
     parsedRequest.images,
